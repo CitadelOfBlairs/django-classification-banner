@@ -28,13 +28,21 @@ Add ``django_classification_banner`` to ``INSTALLED_APPS`` in your project's
         'django_classification_banner',
     )
 
-Add the classification banner context processor to the ```TEMPLATE_CONTEXT_PROCESSORS``` setting in your project's
-``settings`` module:
+Add the classification banner context processor to the ```context_processors``` section of the ```TEMPLATES``` setting in your project's ``settings`` module:
 
-    TEMPLATE_CONTEXT_PROCESSORS = (
-        # other context processors
-        'django_classification_banner.context_processors.classification',
-    )
+    TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                # other context processors
+                'django_classification_banner.context_processors.classification',
+            ],
+        },
+    },
+    ]
 
 Customize your site's classification settings in the ``settings`` module:
 	
